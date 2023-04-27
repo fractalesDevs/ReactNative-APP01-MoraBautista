@@ -1,4 +1,5 @@
 import {View, TextInput, Button, Text, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { Input  } from './components';
 import { styles } from './styles/styles';
 import { useState } from 'react';
 
@@ -45,10 +46,14 @@ console.log(modalVisible);
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput value={text} onChangeText={(text)=> setText(text)} style={styles.input} placeholder='Escribe elemento'></TextInput>
-        <Button title='ADD' color='#f41353' onPress={onAdEvent}/>
-      </View>
+      <Input  
+      buttonColor={'#f41353'}
+      buttonTitle={'Aqui meros'}
+      onChangeText={(text) => setText(text)}
+      onHandlerButton={onAdEvent}
+      placeholder={'Placeholder de input'}
+      value={text}
+      ></Input>
       <View style={styles.contItems}>
         <FlatList
         renderItem={renderItem}

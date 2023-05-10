@@ -1,13 +1,17 @@
-import { View } from "react-native";
-import { Input, Item, ModalResume } from "./components";
-import { styles } from "./styles/styles";
+import React from "react";
+import { View,Text } from "react-native";
+import { Input, Item, ModalResume } from "../../components";
+import {tema} from "../../constants";
+import { styles } from "./styles";
 import { useState } from "react";
 
-export default function App() {
-  const [text, setText] = useState("");
+
+const Inicio = ({checkVacio,setCheckVacio}) => {
+    const [text, setText] = useState("");
   const [events, setEvents] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+
   const onAdEvent = () => {
     if (text.length === 0) return;
     setEvents([
@@ -18,8 +22,9 @@ export default function App() {
       },
     ]);
     setText("");
-    console.log(events);
+    //console.log(events);
   };
+
   const onHandlerEvent = (id) => {
     setModalVisible(true);
     const selectedEvent = events.find((event) => event.id === id);
@@ -30,16 +35,28 @@ export default function App() {
     setSelectedEvent(null);
   };
 
+  const handlerVacio = (resp)=>{
+if(resp.length<=1){
+  console.log('Arreglo vacio')
+  setCheckVacio(true)
+}else{
+  setCheckVacio(false)
+}
+  }
+
   const onHandlerDeleteEvent = (id) => {
     setEvents(events.filter((event) => event.id !== id));
     setModalVisible(!modalVisible);
-    console.log(modalVisible);
+    handlerVacio(events);
   };
 
-  return (
-    <View style={styles.container}>
+    return (
+        <View style={styles.containerGral}>
+        <View style={styles.welcomeContainer}>
+        <Text style={styles.welcomeTitle}>Agregar producto</Text>
+      </View>
       <Input
-        buttonColor={"#f41353"}
+        buttonColor={tema.colores.primary}
         buttonTitle={"Agregar"}
         onChangeText={(text) => setText(text)}
         onHandlerButton={onAdEvent}
@@ -53,6 +70,9 @@ export default function App() {
         cancel={onHandlerCancelModal}
         borrar={onHandlerDeleteEvent}
       ></ModalResume>
-    </View>
-  );
+      </View>
+    )
 }
+
+export default Inicio;
+

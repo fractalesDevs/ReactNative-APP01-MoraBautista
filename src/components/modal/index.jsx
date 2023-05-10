@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, View, Text, Button } from "react-native";
+import {tema} from "../../constants/tema";
 import { styles } from "./styles";
 
 const ModalResume = ({ vis, selec, cancel, borrar }) => {
@@ -19,7 +20,7 @@ const ModalResume = ({ vis, selec, cancel, borrar }) => {
           <Button
             style={styles.modalBtn}
             title="Cancel"
-            color="#f41353"
+            color={tema.colores.secondary}
             onPress={cancel}
           />
         </View>
@@ -27,7 +28,7 @@ const ModalResume = ({ vis, selec, cancel, borrar }) => {
           <Button
             style={styles.modalBtn}
             title="Delete"
-            color="#f41353"
+            color={tema.colores.primary}
             onPress={() => borrar(selec.id)}
           />
         </View>

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import {tema} from "../../constants";
 
 export const styles = StyleSheet.create({
   modalContainer: {
@@ -7,18 +8,20 @@ export const styles = StyleSheet.create({
   modalTitle: {
     marginTop: 60,
     marginHorizontal: 20,
+    fontFamily:'Montserrat-Bold'
   },
   modalTitTxt: {
     fontSize: 25,
     marginBottom: 15,
     color: "#f41353",
-    fontWeight: "bold",
+    fontFamily:'Montserrat-Bold'
   },
   modalContTxt: {
     marginHorizontal: 20,
   },
   modalTxt: {
     fontSize: 18,
+    fontFamily:'Montserrat-Regular',
   },
   contBotones: {
     marginHorizontal: 10,

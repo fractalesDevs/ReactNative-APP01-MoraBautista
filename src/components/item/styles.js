@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import {tema} from "../../constants";
 
 export const styles = StyleSheet.create({
   contItems: {
@@ -9,13 +10,13 @@ export const styles = StyleSheet.create({
     marginHorizontal: 15,
   },
   texto: {
-    backgroundColor: "#f41353",
+    backgroundColor: tema.colores.secondary,
     color: "#ffffff",
     padding: 20,
     marginBottom: 3,
     marginTop: 3,
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily:'Montserrat-Bold',
     borderRadius: 10,
   },
 });
